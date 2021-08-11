@@ -70,8 +70,8 @@ ggplot(Total_Steps, aes(x = steps)) +
     labs(title = "Daily Steps", x = "Steps", y = "Frequency")
 ```
 
-    ## Warning: Removed 8 rows containing non-finite values (stat_bin).
-
+![]
+(https://github.com/Lazybrain/RepData_PeerAssessment1/blob/master/instructions_fig/Rplot1.png) 
 
 1.  Calculate and report the mean and median of the total number of steps taken per day
 
@@ -90,8 +90,10 @@ What is the average daily activity pattern?
 ``` r
 IntervalDT <- activityDT[, c(lapply(.SD, mean, na.rm = TRUE)), .SDcols = c("steps"), by = .(interval)] 
 
-ggplot(IntervalDT, aes(x = interval , y = steps)) + geom_line(color="blue", size=1) + labs(title = "Avg. Daily Steps", x = "Interval", y = "Avg. Steps per day")
+ggplot(IntervalDT, aes(x = interval , y = steps)) + geom_line(color="green", size=1) + labs(title = "Avg. Daily Steps", x = "Interval", y = "Avg. Steps per day")
 ```
+![]
+(https://github.com/Lazybrain/RepData_PeerAssessment1/blob/master/instructions_fig/Rplot2.png) 
 
 
 1.  Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -148,8 +150,11 @@ Total_Steps[, .(Mean_Steps = mean(steps), Median_Steps = median(steps))]
     ## 1:    9354.23        10395
 
 ``` r
-ggplot(Total_Steps, aes(x = steps)) + geom_histogram(fill = "blue", binwidth = 1000) + labs(title = "Daily Steps", x = "Steps", y = "Frequency")
+ggplot(Total_Steps, aes(x = steps)) + geom_histogram(fill = "orange", binwidth = 1000) + labs(title = "Daily Steps", x = "Steps", y = "Frequency")
 ```
+![]
+(https://github.com/Lazybrain/RepData_PeerAssessment1/blob/master/instructions_fig/Rplot3.png) 
+
 
 
 
@@ -194,3 +199,7 @@ IntervalDT <- activityDT[, c(lapply(.SD, mean, na.rm = TRUE)), .SDcols = c("step
 
 ggplot(IntervalDT , aes(x = interval , y = steps, color=`weekday or weekend`)) + geom_line() + labs(title = "Avg. Daily Steps by Weektype", x = "Interval", y = "No. of Steps") + facet_wrap(~`weekday or weekend` , ncol = 1, nrow=2)
 ```
+
+![]
+(https://github.com/Lazybrain/RepData_PeerAssessment1/blob/master/instructions_fig/Rplot01.png) 
+
